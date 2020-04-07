@@ -1,0 +1,48 @@
+* {
+    line-height: 1.6;
+}
+
+input {
+    border: solid 1px lightgrey;
+    padding: 3px;
+}
+
+button {
+    border: solid 1px grey;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    text-align: left;
+}
+
+.Event {
+    border: solid 1px lightgrey;
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.visibility {
+    font-style: italic;
+}
+
+.date_time {
+    margin-top: 20px;
+}
+
+.event_name {
+    font-weight: bold;
+}
+
+.event_rsvp {
+    font-style: italic;
+}
