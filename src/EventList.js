@@ -5,8 +5,9 @@ import './App.css';
 class EventList extends Component {
 
     state = {
-        events: [
+         events: [
             {
+                id: 1,
                 local_time: "19:00",
                 local_date: "2019-08-27",
                 name: "Microservices mit dem MicroProfile 3.x",

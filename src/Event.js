@@ -38,7 +38,7 @@ class Event extends Component {
                     <li className="event_name">
                         {this.props.event.name}
                     </li>
-                    <li>
+                    <li className={"group_name"}>
                         GROUP: {this.props.event.group.name}
                     </li>
                     <li className="event_rsvp">
