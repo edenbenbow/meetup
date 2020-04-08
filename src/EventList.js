@@ -6,7 +6,7 @@ class EventList extends Component {
 
     state = {
          events: [
-            {
+            /*{
                 id: 1,
                 local_time: "19:00",
                 local_date: "2019-08-27",
@@ -34,7 +34,7 @@ class EventList extends Component {
                 id: 4, yes_rsvp_count: 4, description: "desc4", group: {
                     name: "Java User Group Hamburg",
                 },
-            }
+            }*/
         ],
     };
 
