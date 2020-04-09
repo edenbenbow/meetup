@@ -3,6 +3,7 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
+import { getEvents } from './api';
 
 class App extends Component {
 
@@ -14,15 +15,19 @@ class App extends Component {
       });
   }
 
+  updateEvents = (lat, lon) => {
+    getEvents(lat, lon).then(events => this.setState({ events }));
+  }
+
   render() {
     return (
       <div className="App">
           <h1>Meetup Events</h1>
-          <CitySearch />
+          <CitySearch updateEvents={this.updateEvents} />
           <NumberOfEvents
               numberSelected={this.state.numberSelected}
               changeNumberSelected={this.changeNumber.bind(this)} />
-          <EventList numberSelected={this.state.numberSelected} />
+          <EventList numberSelected={this.state.numberSelected} events={this.state.events} />
       </div>
     );
   }

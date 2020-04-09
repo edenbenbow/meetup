@@ -85,5 +85,3 @@ describe('<EventList /> component', () => {
         expect(EventListWrapper.find(Event)).toHaveLength(0);
     });
 });
-
-
