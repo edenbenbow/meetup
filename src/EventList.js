@@ -39,9 +39,9 @@ class EventList extends Component {
     };
 
     render() {
-        if (!this.props.numberSelected) return null;
+        if (!this.props.numberSelected || !this.props.events) return null;
 
-        let filteredEvents = this.state.events.slice(0, this.props.numberSelected);
+        let filteredEvents = this.props.events.slice(0, this.props.numberSelected);
         return (
             <ul className="EventList">
                 {filteredEvents.map(event =>

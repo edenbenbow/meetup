@@ -39,7 +39,7 @@ class Event extends Component {
                         {this.props.event.name}
                     </li>
                     <li className={"group_name"}>
-                        GROUP: {this.props.event.group.name}
+                        GROUP: {this.props.event.group ? this.props.event.group.name : ""}
                     </li>
                     <li className="event_rsvp">
                         {this.props.event.yes_rsvp_count} are going
