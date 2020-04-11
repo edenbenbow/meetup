@@ -1,5 +1,5 @@
 import { mockEvents } from './mock-events';
-import { axios } from 'axios';
+import axios from 'axios';
 
 async function getSuggestions(query) {
     if (window.location.href.startsWith('http://localhost')) {
@@ -45,7 +45,7 @@ async function getAccessToken() {
         const code = searchParams.get('code');
 
         if (!code) {
-            window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=uq8vhsl4s15fb5djgqs843ojc9&response_type=code&redirect_uri=https://edenbenbow.github.io/';
+            window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=uq8vhsl4s15fb5djgqs843ojc9&response_type=code&redirect_uri=https://edenbenbow.github.io/meetup';
             return null;
         }
         return getOrRenewAccessToken('get', code);
