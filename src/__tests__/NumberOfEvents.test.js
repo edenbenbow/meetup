@@ -7,14 +7,14 @@ import Event from "../Event";
 describe('<NumberOfEvents /> component', () => {
     let NumberOfEventsWrapper;
 
-    beforeAll(() => {
-        NumberOfEventsWrapper = shallow(<NumberOfEvents numberSelected={'32'} changeNumberSelected={(v)=>{}} />);
+    beforeEach(() => {
+        NumberOfEventsWrapper = shallow(<NumberOfEvents page={'32'} changePage={(v)=>{}} />);
     });
 
     test('change state when text input changes', () => {
-        const eventObject = { target: { value: '1' }};
+        const eventObject = { target: { value: '2' }};
         NumberOfEventsWrapper.find('.numbers_field').simulate('change', eventObject);
-        expect(NumberOfEventsWrapper.state('numberSelected')).toBe('1');
+        expect(NumberOfEventsWrapper.state(/*'numberSelected'*/ 'page')).toBe('2');
     });
 
     test('render numbers textbox', () => {
@@ -26,9 +26,13 @@ describe('<NumberOfEvents /> component', () => {
     });
 
     test('numbers textbox does not accept letters', () => {
-        const eventObject = { target: { value: '1' }};
+        const eventObject = { target: { value: 'a' }};
         NumberOfEventsWrapper.find('.numbers_field').simulate('change', eventObject);
-        expect(NumberOfEventsWrapper.state('numberSelected')).toBe('1');
+        expect(NumberOfEventsWrapper.state(/*'numberSelected'*/ 'page')).toBe('');
+
+        const eventObject2 = { target: { value: '4' }};
+        NumberOfEventsWrapper.find('.numbers_field').simulate('change', eventObject2);
+        expect(NumberOfEventsWrapper.state(/*'numberSelected'*/ 'page')).toBe('4');
     });
 
     test('renders paragraph text', () => {

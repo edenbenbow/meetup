@@ -8,18 +8,20 @@ describe('<EventList /> component', () => {
     let EventListWrapper;
 
     test('render correct number of events', () => {
-        let numberSelected = '3';
+        //let numberSelected = '3';
+        let page = '3';
+
         let mockEvents = [
-            { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }
+            { id: 1 }, { id: 2 }, { id: 3 }
         ]
-        EventListWrapper = shallow(<EventList numberSelected={numberSelected} events={mockEvents}/>);
+        EventListWrapper = shallow(<EventList /*numberSelected={numberSelected}*/ page={page} events={mockEvents}/>);
         EventListWrapper.setState(
             {
                 events: []
             });
         expect(EventListWrapper.find(Event)).toHaveLength(3);
     });
-    test('does not render without number selected', () => {
+    /*test('does not render without number selected', () => {
         EventListWrapper = shallow(<EventList />);
         EventListWrapper.setState(
             {
@@ -56,5 +58,5 @@ describe('<EventList /> component', () => {
                 ]
             });
         expect(EventListWrapper.find(Event)).toHaveLength(0);
-    });
+    });*/
 });

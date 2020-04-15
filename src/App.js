@@ -7,16 +7,33 @@ import { getEvents } from './api';
 
 class App extends Component {
 
-  state = { numberSelected: '32'};
+  state = {
+      lat: null,
+      lon: null,
+      page: '',
+      events: []
+  };
 
-  changeNumber(value) {
-      this.setState({
-          numberSelected: value
-      });
+  componentDidMount() {
+      this.updateEvents();
   }
 
-  updateEvents = (lat, lon) => {
-    getEvents(lat, lon).then(events => this.setState({ events }));
+  changePage(value) {
+      this.setState({
+          page: value
+      });
+      this.updateEvents(this.state.lat, this.state.lon, value);
+  }
+
+  updateEvents = (lat, lon, page) => {
+
+      getEvents(
+          lat ? lat : this.state.lat,
+          lon ? lon : this.state.lon,
+          (page !== undefined) ? page : this.state.page).then(events => {
+              this.setState({events, lat, lon});
+          }
+      );
   }
 
   render() {
@@ -25,9 +42,11 @@ class App extends Component {
           <h1>Meetup Events</h1>
           <CitySearch updateEvents={this.updateEvents} />
           <NumberOfEvents
-              numberSelected={this.state.numberSelected}
-              changeNumberSelected={this.changeNumber.bind(this)} />
-          <EventList numberSelected={this.state.numberSelected} events={this.state.events} />
+              page={this.state.page}
+              changePage={this.changePage.bind(this)} />
+          <EventList
+              events={this.state.events}
+              page={this.state.page} />
       </div>
     );
   }

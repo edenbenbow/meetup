@@ -35,6 +35,7 @@ describe('<App /> integration', () => {
     AppWrapper.instance().forceUpdate();
     const CitySearchWrapper = AppWrapper.find(CitySearch);
     CitySearchWrapper.instance().handleItemClicked('value', 1.1, 1.2);
+    await AppWrapper.update();
     expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
     expect(AppWrapper.instance().updateEvents).toHaveBeenCalledWith(1.1, 1.2);
     AppWrapper.unmount();
@@ -45,13 +46,22 @@ describe('<App /> integration', () => {
     AppWrapper.instance().updateEvents(1.1, 1.2);
     await AppWrapper.update();
     expect(AppWrapper.state('events')).toEqual(mockEvents.events);
+  });
+
+  test('render correct number of events', async () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.setState({ events: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }] });
+    await AppWrapper.update();
+    expect(AppWrapper.find('.Event')).toHaveLength(4);
     AppWrapper.unmount();
   });
 
-  test('render correct list of events', () => {
+  test('events rendered matches number selected', async () => {
     const AppWrapper = mount(<App />);
-    AppWrapper.setState({ events: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }] });
-    expect(AppWrapper.find('.Event')).toHaveLength(4);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    await NumberOfEventsWrapper.instance().changePage({ target: { value: 3 } });
+    await AppWrapper.update();
+    expect(AppWrapper.find('.Event')).toHaveLength(3);
     AppWrapper.unmount();
   });
 
