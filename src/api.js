@@ -65,11 +65,7 @@ async function getAccessToken() {
 
 async function getEvents(lat, lon, page) {
     if (window.location.href.startsWith('http://localhost')) {
-        if (page !== "") {
-            return mockEvents.events.slice(0, page);
-        } else {
-            return mockEvents.events;
-        }
+        return mockEvents.events.slice(0, page !== '' ? page : 32);
     }
 
     const token = await getAccessToken();

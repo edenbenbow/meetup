@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import NumberOfEvents from '../NumberOfEvents';
 import CitySearch from "../CitySearch";
-import Event from "../Event";
+import Event from '../Event';
 
 describe('<NumberOfEvents /> component', () => {
     let NumberOfEventsWrapper;
@@ -28,11 +28,11 @@ describe('<NumberOfEvents /> component', () => {
     test('numbers textbox does not accept letters', () => {
         const eventObject = { target: { value: 'a' }};
         NumberOfEventsWrapper.find('.numbers_field').simulate('change', eventObject);
-        expect(NumberOfEventsWrapper.state(/*'numberSelected'*/ 'page')).toBe('');
+        expect(NumberOfEventsWrapper.state('page')).toBe('');
 
         const eventObject2 = { target: { value: '4' }};
         NumberOfEventsWrapper.find('.numbers_field').simulate('change', eventObject2);
-        expect(NumberOfEventsWrapper.state(/*'numberSelected'*/ 'page')).toBe('4');
+        expect(NumberOfEventsWrapper.state('page')).toBe('4');
     });
 
     test('renders paragraph text', () => {
