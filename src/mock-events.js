@@ -1,3 +1,5 @@
+const mockEventsDefaultPage = 32;
+
 const mockEvents = {
     city: {
         id: 1007700,
@@ -1362,7 +1364,7 @@ const mockEvents = {
             visibility: 'public',
             member_pay_fee: false
         },
-        /*{
+        {
             created: 1582811091000,
             duration: 10800000,
             id: '269032589',
@@ -1496,10 +1498,10 @@ const mockEvents = {
             description: '<p>TICKETS ARE ONLY SOLD THROUGH EVENTBRITE<br/><a href=\'https://www.eventbrite.de/e/werksacademy-pow-by-tractionwise-go-to-market-customer-centric-to-traction-tickets-96430896407\' class=\'linkified\'>https://www.eventbrite.de/e/werksacademy-pow-by-tractionwise-go-to-market-customer-centric-to-traction-tickets-96430896407</a></p> <p>Why this workshop format exists</p> <p>Too many companies are far away from customers, do a lot, but still don\'t bring their power to the ground. Those responsible in companies often fall into the pattern of \'Build it and they will come\'. They lock themselves in and polish products and services. All too often, they are far away from the actual needs of the customer. As a result, founders, marketers and salespeople often speak a completely different language than their customers. This ultimately leads to the failure of a product launch or market entry, or at least to burning of enormous resources.</p> <p>Workshop Overview</p> <p>Customer Insights:<br/>We develop a sharp customer profile within a buying center. In doing so, we rely on elements of customer development to achieve the Problem-Solution Fit.</p> <p>Value Proposition Design:<br/>We develop a stringent storyline easy to understand for the customer and covering various stages. This makes everyone in the team who potentially comes into contact with customers able to speak.</p> <p>Channel Execution:<br/>From a basic structure and impartiality to a sustainable marketing portfolio, we lay the foundation for a functioning Go to Market.<br/>When: Tuesday, April 21st @5 - 8PM -- presentation, followed by discussion, networking &amp; drinks</p> <p>Where: WERK1, Atelierstr. 29 (room: „Workshopraum”)</p> <p>Who: Startups &amp; Coworker from the Munich ecosystem</p> <p>Speaker: André Wehr I Co-Founder &amp; CEO - tractionwise</p> <p>The event will be in English.</p> ',
             visibility: 'public',
             member_pay_fee: false
-        }*/
+        }
 
     ]
 };
 
-export { mockEvents };
+export { mockEvents, mockEventsDefaultPage };
 

@@ -1,4 +1,4 @@
-import { mockEvents } from './mock-events';
+import { mockEvents, mockEventsDefaultPage } from './mock-events';
 import axios from 'axios';
 
 async function getSuggestions(query) {
@@ -65,7 +65,7 @@ async function getAccessToken() {
 
 async function getEvents(lat, lon, page) {
     if (window.location.href.startsWith('http://localhost')) {
-        return mockEvents.events.slice(0, page !== '' ? page : 32);
+        return mockEvents.events.slice(0, page !== '' ? page : mockEventsDefaultPage);
     }
 
     const token = await getAccessToken();

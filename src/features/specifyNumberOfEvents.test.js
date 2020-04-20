@@ -3,13 +3,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import App from '../App';
 
-import NumberOfEvents from '../NumberOfEvents';
-import CitySearch from '../CitySearch';
-import EventList from '../EventList';
-import { mockEvents } from '../mock-events';
-import puppeteer from 'puppeteer';
-
-
+import { mockEvents, mockEventsDefaultPage } from '../mock-events';
 
 const feature = loadFeature('./src/features/specifyNumberOfEvents.feature');
 
@@ -45,7 +39,7 @@ defineFeature(feature, test => {
         });
 
         then('the app will show the specified number of events', () => {
-            expect(AppWrapper.find('.Event')).toHaveLength(32);
+            expect(AppWrapper.find('.Event')).toHaveLength(mockEventsDefaultPage);
         });
     });
 });

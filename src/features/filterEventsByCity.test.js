@@ -3,8 +3,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import App from '../App';
 import CitySearch from '../CitySearch';
-import { mockEvents } from '../mock-events';
-import puppeteer from 'puppeteer';
+import {mockEvents, mockEventsDefaultPage} from '../mock-events';
 
 
 
@@ -23,7 +22,7 @@ defineFeature(feature, test => {
 
         then('the user should see the list of upcoming events from their location', () => {
             AppWrapper.update();
-            expect(AppWrapper.find('.Event')).toHaveLength(mockEvents.events.length);
+            expect(AppWrapper.find('.Event')).toHaveLength(mockEventsDefaultPage);
         });
     });
 
@@ -65,7 +64,7 @@ defineFeature(feature, test => {
         });
 
         and('the user should receive a list of upcoming events in that city', () => {
-            expect(AppWrapper.find('.Event')).toHaveLength(mockEvents.events.length);
+            expect(AppWrapper.find('.Event')).toHaveLength(mockEventsDefaultPage);
         });
     });
 });

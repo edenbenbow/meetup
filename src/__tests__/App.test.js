@@ -4,7 +4,7 @@ import App from '../App';
 import EventList from '../EventList';
 import CitySearch from '../CitySearch';
 import NumberOfEvents from '../NumberOfEvents';
-import { mockEvents } from '../mock-events';
+import {mockEvents, mockEventsDefaultPage} from '../mock-events';
 
 
 describe('<App /> component', () => {
@@ -45,7 +45,7 @@ describe('<App /> integration', () => {
     const AppWrapper = shallow(<App />);
     AppWrapper.instance().updateEvents(1.1, 1.2);
     await AppWrapper.update();
-    expect(AppWrapper.state('events')).toEqual(mockEvents.events);
+    expect(AppWrapper.state('events')).toEqual(mockEvents.events.slice(0, mockEventsDefaultPage));
   });
 
   test('render correct number of events', async () => {
