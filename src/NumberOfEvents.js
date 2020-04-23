@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import {ErrorAlert, InfoAlert} from './Alert';
 
 class NumberOfEvents extends Component {
 
@@ -10,6 +11,15 @@ class NumberOfEvents extends Component {
     changePage = (event) => {
         const value = event.target.value;
         if (isNaN(value) && value !== '') return;
+        if (value < 1) {
+            this.setState({
+                errorText: 'Number should be at least 1'
+            });
+        } else {
+            this.setState(
+                {errorText: '',}
+            )
+        }
         this.setState({page: value});
         this.props.changePage(value);
     };
@@ -19,6 +29,7 @@ class NumberOfEvents extends Component {
 
         return (
             <div className="NumberOfEvents">
+                <ErrorAlert text={this.state.errorText} />
                 <p className="select_number_string">Show <input
                     type="number"
                     className="numbers_field"
